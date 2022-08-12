@@ -1,6 +1,11 @@
 // ignore_for_file: sort_child_properties_last
 
+import 'package:eight_project/pages/product%20_details.dart';
 import 'package:flutter/material.dart';
+import 'package:eight_project/pages/cart.dart';
+import 'package:eight_project/pages/profile.dart';
+import 'package:eight_project/pages/hot.dart';
+import 'package:eight_project/pages/homePage.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -23,7 +28,7 @@ class HomePage extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(
-                  width: 150,
+                  width: 100,
                 ),
                 const Icon(Icons.search)
               ],
@@ -40,7 +45,7 @@ class HomePage extends StatelessWidget {
                 ),
                 style: ButtonStyle(
                     fixedSize:
-                        MaterialStateProperty.all(const Size.fromWidth(120)),
+                        MaterialStateProperty.all(const Size.fromWidth(90)),
                     backgroundColor: MaterialStateProperty.all(Colors.red[900]),
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
@@ -58,7 +63,7 @@ class HomePage extends StatelessWidget {
                 ),
                 style: ButtonStyle(
                     fixedSize:
-                        MaterialStateProperty.all(const Size.fromWidth(120)),
+                        MaterialStateProperty.all(const Size.fromWidth(90)),
                     backgroundColor:
                         MaterialStateProperty.all(Colors.transparent),
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -77,7 +82,7 @@ class HomePage extends StatelessWidget {
                 ),
                 style: ButtonStyle(
                     fixedSize:
-                        MaterialStateProperty.all(const Size.fromWidth(120)),
+                        MaterialStateProperty.all(const Size.fromWidth(90)),
                     backgroundColor:
                         MaterialStateProperty.all(Colors.transparent),
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -92,227 +97,255 @@ class HomePage extends StatelessWidget {
         ),
         centerTitle: true,
         toolbarHeight: 100,
-        backgroundColor: Colors.grey[900],
+        backgroundColor: Colors.black,
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.only(top:16.0),
-          child: Column(
-            children: [
-              Card(
-                  elevation: 200,
-                  child: Container(
-                    padding: const EdgeInsets.all(5.0),
-                    child: Column(children: [
-                      Row(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Card(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5),
+                    side: const BorderSide(color: Colors.white70)),
+                elevation: 30,
+                shadowColor: Colors.white,
+                child: Container(
+                  padding: const EdgeInsets.all(2.0),
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Image.asset(
+                                "assets/icons/drawable-hdpi/heartitem.png",
+                                width: 25,
+                                height: 25,
+                              ),
+                              Image.asset(
+                                "assets/icons/drawable-hdpi/favoriteditemenabled.png",
+                                width: 25,
+                                height: 25,
+                              )
+                            ]),
+                        // const SizedBox(
+                        //   height: 25,
+                        // ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (_) => const ProductDetails1()));
+                          },
+                          child: Image.asset(
+                            "assets/images/image-phone.jpg",
+                            width: 180,
+                            height: 180,
+                          ),
+                        ),
+                        Row(
                           mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Image.asset("assets/icons/drawable-hdpi/flag.png"),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            const Text(
+                              "TRENDING",
+                              style: TextStyle(color: Colors.red),
+                            ),
+                          ],
+                        ),
+                        const Divider(color: Colors.grey),
+                        Row(
+                          children: const [
+                            Text("Samsung Galaxy A56-128 GB ",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(" \$949.00",
+                                style: TextStyle(color: Colors.black87))
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Row(
                           children: [
                             Image.asset(
-                              "assets/icons/drawable-hdpi/heartitem.png",
-                              width: 25,
-                              height: 25,
+                                "assets/icons/drawable-hdpi/hearticon.png"),
+                            const Text(
+                              "653 likes",
+                              style: TextStyle(color: Colors.black87),
                             ),
                             const SizedBox(
-                              width: 290,
+                              width: 60,
                             ),
-                            Image.asset(
-                              "assets/icons/drawable-hdpi/favoriteditemenabled.png",
-                              width: 25,
-                              height: 25,
+                            const Icon(Icons.comment),
+                            const Text(
+                              '101  comments',
+                              style: TextStyle(color: Colors.black87),
                             )
-                          ]),
-                      const SizedBox(
-                        height: 25,
-                      ),
-                      Image.asset("assets/images/image-phone.jpg"),
-                      Row(
-                        children: [
-                          Image.asset("assets/icons/drawable-hdpi/flag.png"),
-                          const SizedBox(
-                            width: 10,
+                          ],
+                        )
+                      ]),
+                )),
+            Card(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5),
+                    side: const BorderSide(color: Colors.white70)),
+                elevation: 30,
+                shadowColor: Colors.white,
+                child: Container(
+                  padding: const EdgeInsets.all(5),
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Image.asset(
+                                "assets/icons/drawable-hdpi/heartitemenabled.png",
+                                width: 25,
+                                height: 25,
+                              ),
+                              Image.asset(
+                                "assets/icons/drawable-hdpi/addbutton.png",
+                                width: 25,
+                                height: 25,
+                              )
+                            ]),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (_) => const ProductDetails1()));
+                          },
+                          child: Image.asset(
+                            "assets/images/image-laptop.jpg",
+                            width: 180,
+                            height: 180,
                           ),
-                          const Text(
-                            "TRENDING",
-                            style: TextStyle(color: Colors.red),
-                          ),
-                        ],
-                      ),
-                      const Divider(color: Colors.grey),
-                      Row(
-                        children: const [
-                          Text("ipad  Pro(128 GB)- Space Grey ",
-                              style: TextStyle(fontWeight: FontWeight.bold)),
-                          Text(" \$949.00",
-                              style: TextStyle(color: Colors.black87))
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        children: [
-                          Image.asset("assets/icons/drawable-hdpi/hearticon.png"),
-                          const Text(
-                            "653 likes",
-                            style: TextStyle(color: Colors.black87),
-                          ),
-                          const SizedBox(
-                            width: 60,
-                          ),
-                          const Icon(Icons.comment),
-                          const Text(
-                            '101  comments',
-                            style: TextStyle(color: Colors.black87),
-                          )
-                        ],
-                      )
-                    ]),
-                  )),
-              const SizedBox(
-                height: 15,
-              ),
-              Card(
-                  elevation: 200.0,
-                  shadowColor: Colors.white,
-                  child: Container(
-                    padding: const EdgeInsets.all(5),
-                    child: Column(children: [
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        ),
+                        const Divider(color: Colors.grey),
+                        Row(
+                          children: const [
+                            Text("Hewlett Packard Elite Book",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(" \$1500.00",
+                                style: TextStyle(color: Colors.black87))
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Row(
                           children: [
                             Image.asset(
-                              "assets/icons/drawable-hdpi/heartitemenabled.png",
-                              width: 25,
-                              height: 25,
+                                "assets/icons/drawable-hdpi/hearticon.png"),
+                            const Text(
+                              "781 likes",
+                              style: TextStyle(color: Colors.black87),
                             ),
                             const SizedBox(
-                              width: 290,
+                              width: 60,
                             ),
-                            Image.asset(
-                              "assets/icons/drawable-hdpi/addbutton.png",
-                              width: 25,
-                              height: 25,
+                            const Icon(Icons.comment),
+                            const Text(
+                              '297  comments',
+                              style: TextStyle(color: Colors.black87),
                             )
-                          ]),
-                      const SizedBox(
-                        height: 25,
-                      ),
-                      Image.asset("assets/images/image-laptop.jpg"),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      const Divider(color: Colors.grey),
-                      Row(
-                        children: const [
-                          Text("Occulus Rift: Consumer Edition ",
-                              style: TextStyle(fontWeight: FontWeight.bold)),
-                          Text(" \$1500.00",
-                              style: TextStyle(color: Colors.black87))
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        children: [
-                          Image.asset("assets/icons/drawable-hdpi/hearticon.png"),
-                          const Text(
-                            "781 likes",
-                            style: TextStyle(color: Colors.black87),
-                          ),
-                          const SizedBox(
-                            width: 60,
-                          ),
-                          const Icon(Icons.comment),
-                          const Text(
-                            '297  comments',
-                            style: TextStyle(color: Colors.black87),
-                          )
-                        ],
-                      )
-                    ]),
-                  ))
-            ],
-          ),
+                          ],
+                        )
+                      ]),
+                ))
+          ],
         ),
       ),
       bottomNavigationBar: Container(
-        padding: const EdgeInsets.all(5),
         width: 120,
-        height: 60,
-        color: Colors.grey[900],
+        height: 75,
+        color: Colors.black,
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Column(
-              children: [
-                Image.asset(
-                  "assets/icons/drawable-hdpi/browsebutton.png",
-                  color: Colors.white,
-                ),
-                const SizedBox(height: 10.8),
-                const Text(
-                  "BROWSE",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.white),
-                )
-              ],
+            TextButton(
+              onPressed: () {
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (_) => const HomePage()));
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Image.asset(
+                    "assets/icons/drawable-hdpi/browsebutton.png",
+                    color: Colors.white,
+                  ),
+                  const Text(
+                    "BROWSE",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.white),
+                  )
+                ],
+              ),
             ),
-            const SizedBox(
-              width: 67,
+            TextButton(
+              onPressed: () {
+                Navigator.pushReplacement(
+                    context, MaterialPageRoute(builder: (_) => const Hot()));
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Image.asset("assets/icons/drawable-hdpi/hotitems.png",
+                      color: Colors.white),
+                  const Text(
+                    "HOT",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.white),
+                  )
+                ],
+              ),
             ),
-            Column(
-              children: [
-                Image.asset("assets/icons/drawable-hdpi/hotitems.png",
-                    color: Colors.white),
-                const SizedBox(
-                  height: 5,
-                ),
-                const Text(
-                  "HOT",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.white),
-                )
-              ],
+            TextButton(
+              onPressed: () {
+                Navigator.pushReplacement(
+                    context, MaterialPageRoute(builder: (_) => const Cart()));
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Image.asset(
+                    "assets/icons/drawable-hdpi/cart.png",
+                    color: Colors.white,
+                  ),
+                  const Text(
+                    "CART",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.white),
+                  )
+                ],
+              ),
             ),
-            const SizedBox(
-              width: 67,
-            ),
-            Column(
-              children: [
-                Image.asset(
-                  "assets/icons/drawable-hdpi/cart.png",
-                  color: Colors.white,
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                const Text(
-                  "CART",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.white),
-                )
-              ],
-            ),
-            const SizedBox(
-              width: 67,
-            ),
-            Column(
-              children: [
-                Image.asset(
-                  "assets/icons/drawable-hdpi/profile.png",
-                  color: Colors.white,
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                const Text(
-                  "PROFILE",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.white),
-                )
-              ],
+            TextButton(
+              onPressed: () {
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (_) => const Profile()));
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Image.asset(
+                    "assets/icons/drawable-hdpi/profile.png",
+                    color: Colors.white,
+                  ),
+                  const Text(
+                    "PROFILE",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.white),
+                  )
+                ],
+              ),
             )
           ],
         ),

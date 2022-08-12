@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:eight_project/pages/cart.dart';
+import 'package:eight_project/pages/profile.dart';
+import 'package:eight_project/pages/hot.dart';
+import 'package:eight_project/pages/homePage.dart';
 
 class Cart extends StatelessWidget {
   const Cart({Key? key}) : super(key: key);
@@ -57,18 +61,18 @@ class Cart extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                               color: Colors.black,
                             )),
-                             const SizedBox(
-                      height: 6,
-                    ),
+                        const SizedBox(
+                          height: 6,
+                        ),
                         const Text("Blue-Medium",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.black38,
                               fontSize: 10,
                             )),
-                             const SizedBox(
-                      height: 6,
-                    ),
+                        const SizedBox(
+                          height: 6,
+                        ),
                         const Text("\$ 199",
                             style: TextStyle(
                               color: Colors.black26,
@@ -135,18 +139,18 @@ class Cart extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                               color: Colors.black,
                             )),
-                             const SizedBox(
-                      height: 6,
-                    ),
+                        const SizedBox(
+                          height: 6,
+                        ),
                         const Text("Blue-Medium",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.black38,
                               fontSize: 10,
                             )),
-                             const SizedBox(
-                      height: 6,
-                    ),
+                        const SizedBox(
+                          height: 6,
+                        ),
                         const Text("\$ 199",
                             style: TextStyle(
                               color: Colors.black26,
@@ -266,81 +270,90 @@ class Cart extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: Container(
-        padding: const EdgeInsets.all(5),
+       bottomNavigationBar: Container(
         width: 120,
-        height: 60,
+        height: 75,
         color: Colors.grey[900],
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Column(
-              children: [
-                Image.asset(
-                  "assets/icons/drawable-hdpi/browsebutton.png",
-                  color: Colors.white,
-                ),
-                const SizedBox(height: 10.8),
-                const Text(
-                  "BROWSE",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.white),
-                )
-              ],
+            TextButton(
+              onPressed: () {
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (_) => const HomePage()));
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Image.asset(
+                    "assets/icons/drawable-hdpi/browsebutton.png",
+                    color: Colors.white,
+                  ),
+                  const Text(
+                    "BROWSE",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.white),
+                  )
+                ],
+              ),
             ),
-            const SizedBox(
-              width: 67,
+            TextButton(
+              onPressed: () {
+                Navigator.pushReplacement(
+                    context, MaterialPageRoute(builder: (_) => const Hot()));
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Image.asset("assets/icons/drawable-hdpi/hotitems.png",
+                      color: Colors.white),
+                  const Text(
+                    "HOT",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.white),
+                  )
+                ],
+              ),
             ),
-            Column(
-              children: [
-                Image.asset("assets/icons/drawable-hdpi/hotitems.png",
-                    color: Colors.white),
-                const SizedBox(
-                  height: 5,
-                ),
-                const Text(
-                  "HOT",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.white),
-                )
-              ],
+            TextButton(
+              onPressed: () {
+                Navigator.pushReplacement(
+                    context, MaterialPageRoute(builder: (_) => const Cart()));
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Image.asset(
+                    "assets/icons/drawable-hdpi/cart.png",
+                    color: Colors.white,
+                  ),
+                  const Text(
+                    "CART",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.white),
+                  )
+                ],
+              ),
             ),
-            const SizedBox(
-              width: 67,
-            ),
-            Column(
-              children: [
-                Image.asset(
-                  "assets/icons/drawable-hdpi/cart.png",
-                  color: Colors.white,
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                const Text(
-                  "CART",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.white),
-                )
-              ],
-            ),
-            const SizedBox(
-              width: 67,
-            ),
-            Column(
-              children: [
-                Image.asset(
-                  "assets/icons/drawable-hdpi/profile.png",
-                  color: Colors.white,
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                const Text(
-                  "PROFILE",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.white),
-                )
-              ],
+            TextButton(
+              onPressed: () {
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (_) => const Profile()));
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Image.asset(
+                    "assets/icons/drawable-hdpi/profile.png",
+                    color: Colors.white,
+                  ),
+                  const Text(
+                    "PROFILE",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.white),
+                  )
+                ],
+              ),
             )
           ],
         ),
