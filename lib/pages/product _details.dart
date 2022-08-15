@@ -7,29 +7,32 @@ class ProductDetails1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            backgroundColor: Colors.grey[900],
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                const Text(
-                  "Product details",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 23,
-                      color: Colors.white),
-                ),
-                Image.asset(
-                  "assets/icons/drawable-hdpi/searchbutton.png",
-                  width: 20,
-                  height: 20,
-                  color: Colors.white,
-                )
-              ],
-            )),
+            backgroundColor: Colors.black,
+            title: const Text(
+              "Product details",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 23,
+                  color: Colors.white),
+            ),
+            centerTitle: true,
+            actions: [
+              Image.asset(
+                "assets/icons/drawable-hdpi/searchbutton.png",
+                width: 20,
+                color: Colors.white,
+              )
+            ]),
         body: SingleChildScrollView(
             child: Card(
-                elevation: 200,
-                child: Container(
+                elevation: 30,
+                shadowColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(7),
+                    side: const BorderSide(
+                      color: Colors.transparent,
+                    )),
+                child: Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -62,7 +65,7 @@ class ProductDetails1 extends StatelessWidget {
                             ),
                           ],
                         ),
-                        Divider(color: Colors.grey[900]),
+                        const Divider(color: Colors.black),
                         Row(
                           children: const [
                             Text("Samsung Galaxy A56-128 GB ",
@@ -112,45 +115,89 @@ class ProductDetails1 extends StatelessWidget {
                               color: Colors.black45,
                               fontSize: 12),
                         ),
-                        Divider(
-                          color: Colors.grey[900],
+                        const Divider(
+                          color: Colors.black,
                         ),
                         const SizedBox(
                           height: 10,
                         ),
-                        
-                         Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: const [
-                              CircleAvatar(
-                                radius: 25,
-                                backgroundImage:
-                                    AssetImage("assets/images/im3.jpeg"),
+                        Center(
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: SizedBox(
+                                  height: 50,
+                                  child: ListView(
+                                      shrinkWrap: false,
+                                      scrollDirection: Axis.horizontal,
+                                      children: const [
+                                        CircleAvatar(
+                                          radius: 25,
+                                          backgroundImage: AssetImage(
+                                              "assets/images/im3.jpeg"),
+                                        ),
+                                        SizedBox(
+                                          width: 17,
+                                        ),
+                                        CircleAvatar(
+                                          radius: 25,
+                                          backgroundImage: AssetImage(
+                                              "assets/images/im2.jpeg"),
+                                        ),
+                                        SizedBox(
+                                          width: 17,
+                                        ),
+                                        CircleAvatar(
+                                          radius: 25,
+                                          backgroundImage: AssetImage(
+                                              "assets/images/im1.jpeg"),
+                                        ),
+                                        SizedBox(
+                                          width: 17,
+                                        ),
+                                        CircleAvatar(
+                                          radius: 25,
+                                          backgroundImage: AssetImage(
+                                              "assets/images/im4.jpeg"),
+                                        ),
+                                        SizedBox(
+                                          width: 17,
+                                        ),
+                                        CircleAvatar(
+                                          radius: 25,
+                                          backgroundImage: AssetImage(
+                                              "assets/images/im5.jpeg"),
+                                        ),
+                                        SizedBox(
+                                          width: 17,
+                                        ),
+                                        CircleAvatar(
+                                          radius: 25,
+                                          backgroundImage: AssetImage(
+                                              "assets/images/im1.jpeg"),
+                                        ),
+                                        SizedBox(
+                                          width: 17,
+                                        ),
+                                        CircleAvatar(
+                                          radius: 25,
+                                          backgroundImage: AssetImage(
+                                              "assets/images/im1.jpeg"),
+                                        ),
+                                        SizedBox(
+                                          width: 17,
+                                        ),
+                                        CircleAvatar(
+                                          radius: 25,
+                                          backgroundImage: AssetImage(
+                                              "assets/images/im1.jpeg"),
+                                        ),
+                                      ]),
+                                ),
                               ),
-                              CircleAvatar(
-                                radius: 25,
-                                backgroundImage:
-                                    AssetImage("assets/images/im2.jpeg"),
-                              ),
-                              CircleAvatar(
-                                radius: 25,
-                                backgroundImage:
-                                    AssetImage("assets/images/im1.jpeg"),
-                              ),
-                              CircleAvatar(
-                                radius: 25,
-                                backgroundImage:
-                                    AssetImage("assets/images/im4.jpeg"),
-                              ),
-                              CircleAvatar(
-                                radius: 25,
-                                backgroundImage:
-                                    AssetImage("assets/images/im5.jpeg"),
-                              ),
-                               
                             ],
                           ),
-                        
+                        ),
                         const SizedBox(
                           height: 25,
                         ),
@@ -161,8 +208,8 @@ class ProductDetails1 extends StatelessWidget {
                               color: Colors.black45,
                               fontSize: 12),
                         ),
-                        Divider(
-                          color: Colors.grey[900],
+                        const Divider(
+                          color: Colors.black,
                         ),
                         Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,

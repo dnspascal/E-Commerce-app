@@ -12,89 +12,129 @@ class Hot extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Column(
-          children: [
-            Row(
-              children: [
-                Image.asset("assets/icons/drawable-hdpi/menubutton.png"),
-                const SizedBox(
-                  width: 100,
-                ),
-                const Text(
-                  "HOT",
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(
-                  width: 100,
-                ),
-                const Icon(Icons.search)
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Row(children: [
-              TextButton(
-                onPressed: () {},
-                style: ButtonStyle(
-                    fixedSize:
-                        MaterialStateProperty.all(const Size.fromWidth(90)),
-                    backgroundColor: MaterialStateProperty.all(Colors.red[900]),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(18.0),
-                            side: const BorderSide(
-                              color: Colors.white,
-                            )))),
-                child: const Text(
-                  "ALL",
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-              const SizedBox(width: 20),
-              TextButton(
-                onPressed: () {},
-                style: ButtonStyle(
-                    fixedSize:
-                        MaterialStateProperty.all(const Size.fromWidth(90)),
-                    backgroundColor:
-                        MaterialStateProperty.all(Colors.transparent),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(18.0),
-                            side: const BorderSide(
-                              color: Colors.white,
-                            )))),
-                child: const Text(
-                  "TRENDING",
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-              const SizedBox(width: 20),
-              TextButton(
-                onPressed: () {},
-                style: ButtonStyle(
-                    fixedSize:
-                        MaterialStateProperty.all(const Size.fromWidth(90)),
-                    backgroundColor:
-                        MaterialStateProperty.all(Colors.transparent),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(18.0),
-                            side: const BorderSide(
-                              color: Colors.white,
-                            )))),
-                child: const Text(
-                  "NEW",
-                  style: TextStyle(color: Colors.white),
-                ),
-              )
-            ])
-          ],
+        leading: Image.asset("assets/icons/drawable-hdpi/menubutton.png"),
+        title: const Text(
+          "HOT",
+          style: TextStyle(
+              fontWeight: FontWeight.bold, color: Colors.white, fontSize: 22),
         ),
         centerTitle: true,
         toolbarHeight: 100,
         backgroundColor: Colors.black,
+        actions: const [Icon(Icons.search)],
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(0.0),
+          child: Row(
+            children: [
+              Expanded(
+                child: SizedBox(
+                  height: 30,
+                  child: ListView(scrollDirection: Axis.horizontal, children: [
+                    TextButton(
+                      onPressed: () {},
+                      style: ButtonStyle(
+                          fixedSize: MaterialStateProperty.all(
+                              const Size.fromWidth(90)),
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.red[900]),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(18.0),
+                                      side: const BorderSide(
+                                        color: Colors.white,
+                                      )))),
+                      child: const Text(
+                        "ALL",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                    const SizedBox(width: 20),
+                    TextButton(
+                      onPressed: () {},
+                      style: ButtonStyle(
+                          fixedSize: MaterialStateProperty.all(
+                              const Size.fromWidth(90)),
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.transparent),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(18.0),
+                                      side: const BorderSide(
+                                        color: Colors.white,
+                                      )))),
+                      child: const Text(
+                        "TRENDING",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                    const SizedBox(width: 20),
+                    TextButton(
+                      onPressed: () {},
+                      style: ButtonStyle(
+                          fixedSize: MaterialStateProperty.all(
+                              const Size.fromHeight(5)),
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.transparent),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(18.0),
+                                      side: const BorderSide(
+                                        color: Colors.white,
+                                      )))),
+                      child: const Text(
+                        "NEW",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                    const SizedBox(width: 20),
+                    TextButton(
+                      onPressed: () {},
+                      style: ButtonStyle(
+                          fixedSize: MaterialStateProperty.all(
+                              const Size.fromWidth(90)),
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.transparent),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(18.0),
+                                      side: const BorderSide(
+                                        color: Colors.white,
+                                      )))),
+                      child: const Text(
+                        "TRENDING",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                    const SizedBox(width: 20),
+                    TextButton(
+                      onPressed: () {},
+                      style: ButtonStyle(
+                          fixedSize: MaterialStateProperty.all(
+                              const Size.fromWidth(90)),
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.transparent),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(18.0),
+                                      side: const BorderSide(
+                                        color: Colors.white,
+                                      )))),
+                      child: const Text(
+                        "TRENDING",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ]),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Center(
@@ -107,13 +147,13 @@ class Hot extends StatelessWidget {
                   )),
               margin: EdgeInsets.zero,
               child: Image.asset(
-                "assets/images/image-laptop.jpg",
+                "assets/images/image-tv1.jpg",
                 fit: BoxFit.fill,
                 width: 10000,
                 height: 150,
               ).blurred(
                   colorOpacity: 0.0,
-                  blur: 15.0,
+                  blur: 2.50,
                   overlay: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -126,7 +166,7 @@ class Hot extends StatelessWidget {
                               ),
                               //   const SizedBox(width: 10),
                               Image.asset(
-                                "assets/images/image-laptop.jpg",
+                                "assets/images/image-tv.jpg",
                                 width: 130,
                               ),
                               //  const SizedBox(width: 10),
@@ -150,56 +190,13 @@ class Hot extends StatelessWidget {
                   )),
               margin: EdgeInsets.zero,
               child: Image.asset(
-                "assets/images/image-laptop.jpg",
+                "assets/images/image-phone3.jpg",
                 fit: BoxFit.fill,
                 width: 10000,
                 height: 150,
               ).blurred(
                   colorOpacity: 0.0,
-                  blur: 15.0,
-                  overlay: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Image.asset(
-                                "assets/icons/drawable-hdpi/backwardtick.png",
-                                color: Colors.black,
-                              ),
-                      
-                              Image.asset(
-                                "assets/images/image-laptop.jpg",
-                                width: 130,
-                              ),
-                          
-                              Image.asset(
-                                "assets/icons/drawable-hdpi/forwardtick.png",
-                                color: Colors.black,
-                              ),
-                            ]),
-                        const Text(
-                          "Hewlett Packard",
-                          style: TextStyle(
-                              fontSize: 25, fontWeight: FontWeight.bold),
-                        )
-                      ])),
-            ),
-            Card(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(0),
-                  side: const BorderSide(
-                    color: Colors.transparent,
-                  )),
-              margin: EdgeInsets.zero,
-              child: Image.asset(
-                "assets/images/image-laptop.jpg",
-                fit: BoxFit.fill,
-                width: 10000,
-                height: 150,
-              ).blurred(
-                  colorOpacity: 0.0,
-                  blur: 15.0,
+                  blur: 2.50,
                   overlay: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -211,8 +208,8 @@ class Hot extends StatelessWidget {
                                 color: Colors.black,
                               ),
                               Image.asset(
-                                "assets/images/image-laptop.jpg",
-                                width: 130,
+                                "assets/images/image-phone1.jpg",
+                                width: 70,
                               ),
                               Image.asset(
                                 "assets/icons/drawable-hdpi/forwardtick.png",
@@ -240,7 +237,7 @@ class Hot extends StatelessWidget {
                 height: 150,
               ).blurred(
                   colorOpacity: 0.0,
-                  blur: 15.0,
+                  blur: 2.50,
                   overlay: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -281,7 +278,48 @@ class Hot extends StatelessWidget {
                 height: 150,
               ).blurred(
                   colorOpacity: 0.0,
-                  blur: 15.0,
+                  blur: 2.50,
+                  overlay: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Image.asset(
+                                "assets/icons/drawable-hdpi/backwardtick.png",
+                                color: Colors.black,
+                              ),
+                              Image.asset(
+                                "assets/images/image-laptop.jpg",
+                                width: 130,
+                              ),
+                              Image.asset(
+                                "assets/icons/drawable-hdpi/forwardtick.png",
+                                color: Colors.black,
+                              ),
+                            ]),
+                        const Text(
+                          "Hewlett Packard",
+                          style: TextStyle(
+                              fontSize: 25, fontWeight: FontWeight.bold),
+                        )
+                      ])),
+            ),
+            Card(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(0),
+                  side: const BorderSide(
+                    color: Colors.transparent,
+                  )),
+              margin: EdgeInsets.zero,
+              child: Image.asset(
+                "assets/images/image-laptop.jpg",
+                fit: BoxFit.fill,
+                width: 10000,
+                height: 150,
+              ).blurred(
+                  colorOpacity: 0.0,
+                  blur: 2.50,
                   overlay: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -314,7 +352,7 @@ class Hot extends StatelessWidget {
       bottomNavigationBar: Container(
         width: 120,
         height: 75,
-        color: Colors.grey[900],
+        color: Colors.black,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [

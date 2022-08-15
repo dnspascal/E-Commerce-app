@@ -1,5 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:eight_project/app.dart';
-void main(){
-  return runApp(const Ecommerce());
+import 'package:provider/provider.dart';
+import 'package:eight_project/providers/product_provider.dart';
+
+import 'package:eight_project/providers/user_provider.dart';
+
+void main() {
+  return runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (_) => ProductProviders()),
+      ChangeNotifierProvider(create: (_) => UserProviders()),
+    ],
+    child: const Ecommerce(),
+  ));
 }

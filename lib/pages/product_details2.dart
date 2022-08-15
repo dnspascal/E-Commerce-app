@@ -7,21 +7,16 @@ class ProductDetails2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            backgroundColor: Colors.grey[900],
+            backgroundColor: Colors.black,
             title: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                const SizedBox(
-                  width: 90,
-                ),
                 const Text(
                   "Product details",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 23,
                       color: Colors.white),
-                ),
-                const SizedBox(
-                  width: 92,
                 ),
                 Image.asset(
                   "assets/icons/drawable-hdpi/searchbutton.png",
@@ -33,8 +28,8 @@ class ProductDetails2 extends StatelessWidget {
             )),
         body: SingleChildScrollView(
             child: Card(
-                elevation: 200,
-                child: Container(
+                elevation: 30,
+                child: Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Column(children: [
                     Row(children: [
@@ -106,7 +101,7 @@ class ProductDetails2 extends StatelessWidget {
                       onPressed: () {},
                       style: ButtonStyle(
                           backgroundColor:
-                              MaterialStateProperty.all(Colors.grey[800]),
+                              MaterialStateProperty.all(Colors.black),
                           fixedSize: MaterialStateProperty.all(
                               const Size.fromWidth(320))),
                       child: Row(children: [
@@ -248,7 +243,9 @@ class ProductDetails2 extends StatelessWidget {
                     Text(" \$949.00", style: TextStyle(color: Colors.black38))
                   ],
                 ),
-                const SizedBox(width: 100,),
+                const SizedBox(
+                  width: 100,
+                ),
                 Image.asset(
                   "assets/icons/drawable-hdpi/viewcart_btn.png",
                   width: 45,
