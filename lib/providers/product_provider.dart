@@ -4,6 +4,7 @@ import 'package:eight_project/models/products.dart';
 class ProductProviders with ChangeNotifier {
   List<Product> products = [
     Product(
+        imageAtTheBlurOfTheHotPage: "assets/images/image-phone.jpg",
         id: 1,
         isRated: true,
         isTrending: true,
@@ -15,6 +16,7 @@ class ProductProviders with ChangeNotifier {
         price: "\$99",
         imageOfTheProduct: "assets/images/image-phone.jpg"),
     Product(
+        imageAtTheBlurOfTheHotPage: "assets/images/image-controller.jpg",
         id: 2,
         isRated: true,
         isTrending: true,
@@ -26,6 +28,7 @@ class ProductProviders with ChangeNotifier {
         price: "\$678",
         imageOfTheProduct: "assets/images/image-controller.jpg"),
     Product(
+        imageAtTheBlurOfTheHotPage: "assets/images/image-tv.jpg",
         id: 3,
         isRated: true,
         isTrending: true,
@@ -37,6 +40,7 @@ class ProductProviders with ChangeNotifier {
         price: "\$7543",
         imageOfTheProduct: "assets/images/image-tv.jpg"),
     Product(
+        imageAtTheBlurOfTheHotPage: "assets/images/image-laptop.jpg",
         id: 4,
         isRated: true,
         isTrending: true,
@@ -48,6 +52,7 @@ class ProductProviders with ChangeNotifier {
         price: "\$666",
         imageOfTheProduct: "assets/images/image-laptop.jpg"),
     Product(
+        imageAtTheBlurOfTheHotPage: "assets/images/image-hdd.webp",
         id: 5,
         isRated: true,
         isTrending: true,

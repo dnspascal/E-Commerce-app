@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:eight_project/pages/cart.dart';
-import 'package:eight_project/pages/profile.dart';
-import 'package:eight_project/pages/hot.dart';
-import 'package:eight_project/pages/homePage.dart';
 import 'package:eight_project/custom_widgets/cart.dart';
 import 'package:eight_project/custom_widgets/bottombar.dart';
 
@@ -30,13 +26,10 @@ class Cart extends StatelessWidget {
         ],
       ),
       body: SingleChildScrollView(
-        
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-
-            Cart2(),
-            
+            const Cart2(),
             Card(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
@@ -51,11 +44,7 @@ class Cart extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: const [
-                        // SizedBox(
-                        //   height: 20,
-                        // ),
                         Text("Subtotal: "),
-
                         Text(
                           "\$299.5",
                           style: TextStyle(color: Colors.black26),
@@ -63,15 +52,9 @@ class Cart extends StatelessWidget {
                       ],
                     ),
                   ),
-                  // const SizedBox(
-                  //   height: 20,
-                  // ),
                   const Divider(
                     color: Colors.grey,
                   ),
-                  // const SizedBox(
-                  //   height: 20,
-                  // ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(10, 20, 20, 10),
                     child: Row(
@@ -85,15 +68,9 @@ class Cart extends StatelessWidget {
                       ],
                     ),
                   ),
-                  // const SizedBox(
-                  //   height: 20,
-                  // ),
                   const Divider(
                     color: Colors.grey,
                   ),
-                  // const SizedBox(
-                  //   height: 20,
-                  // ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(10, 20, 20, 10),
                     child: Row(
@@ -113,7 +90,7 @@ class Cart extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar:const  Bottom(),
+      bottomNavigationBar: const Bottom(),
     );
   }
 }

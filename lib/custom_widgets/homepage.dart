@@ -91,9 +91,9 @@ class _Card1State extends State<Card1> {
                   Row(
                     children: [
                       Text(productProviders.products[index].productName,
-                          style: TextStyle(fontWeight: FontWeight.bold)),
+                          style:const TextStyle(fontWeight: FontWeight.bold)),
                       Text(productProviders.products[index].price,
-                          style: TextStyle(color: Colors.black87))
+                          style:const TextStyle(color: Colors.black87))
                     ],
                   ),
                   const SizedBox(
@@ -105,7 +105,7 @@ class _Card1State extends State<Card1> {
                       Text(
                         productProviders.products[index].numberOfLikes
                             .toString(),
-                        style: TextStyle(color: Colors.black87),
+                        style:const TextStyle(color: Colors.black87),
                       ),
                       const SizedBox(
                         width: 60,
@@ -114,7 +114,7 @@ class _Card1State extends State<Card1> {
                       Text(
                         productProviders.products[index].numberOfComments
                             .toString(),
-                        style: TextStyle(color: Colors.black87),
+                        style:const TextStyle(color: Colors.black87),
                       )
                     ],
                   )

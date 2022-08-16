@@ -9,13 +9,12 @@ class Product {
   bool? isRated;
   String imageOfTheProduct;
   String price;
-  
+  String imageAtTheBlurOfTheHotPage;
 
   Product(
-    
-      {
-        required this.id,
-        required this.productName,
+      {required this.imageAtTheBlurOfTheHotPage,
+      required this.id,
+      required this.productName,
       required this.numberOfLikes,
       required this.numberOfComments,
       this.isTrending,
