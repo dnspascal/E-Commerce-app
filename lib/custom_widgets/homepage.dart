@@ -1,7 +1,9 @@
 import 'package:eight_project/providers/product_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:eight_project/pages/product _details.dart';
+
 import "package:provider/provider.dart";
+
+import '../pages/product_details2.dart';
 
 class Card1 extends StatefulWidget {
   Card1({Key? key}) : super(key: key);
@@ -13,6 +15,7 @@ class Card1 extends StatefulWidget {
 class _Card1State extends State<Card1> {
   @override
   Widget build(BuildContext context) {
+    
     ProductProviders productProviders = Provider.of(context);
 
     return ListView.builder(
@@ -33,6 +36,7 @@ class _Card1State extends State<Card1> {
                         IconButton(
                             onPressed: () {
                               productProviders.like(index);
+                              
                             },
                             icon: productProviders.products[index].isLiked
                                 ? Image.asset(
@@ -66,7 +70,7 @@ class _Card1State extends State<Card1> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (_) => const ProductDetails1()));
+                              builder: (_) => const ProductDetails2()));
                     },
                     child: Image.asset(
                       productProviders.products[index].imageOfTheProduct,
@@ -77,9 +81,16 @@ class _Card1State extends State<Card1> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Image.asset("assets/icons/drawable-hdpi/flag.png"),
+                      IconButton(
+                          onPressed: () {
+                            productProviders.trending(index);
+                          },
+                          icon: productProviders.products[index].isTrending
+                              ? Image.asset(
+                                  "assets/icons/drawable-hdpi/flag.png")
+                              : const Icon(Icons.flag_outlined)),
                       const SizedBox(
-                        width: 10,
+                        width: 2,
                       ),
                       const Text(
                         "TRENDING",
@@ -91,9 +102,12 @@ class _Card1State extends State<Card1> {
                   Row(
                     children: [
                       Text(productProviders.products[index].productName,
-                          style:const TextStyle(fontWeight: FontWeight.bold)),
-                      Text(productProviders.products[index].price,
-                          style:const TextStyle(color: Colors.black87))
+                          style: const TextStyle(fontWeight: FontWeight.bold)),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      Text('\$ ${productProviders.products[index].price}',
+                          style: const TextStyle(color: Colors.black87))
                     ],
                   ),
                   const SizedBox(
@@ -102,19 +116,23 @@ class _Card1State extends State<Card1> {
                   Row(
                     children: [
                       Image.asset("assets/icons/drawable-hdpi/hearticon.png"),
+                      const SizedBox(
+                        width: 5,
+                      ),
                       Text(
-                        productProviders.products[index].numberOfLikes
-                            .toString(),
-                        style:const TextStyle(color: Colors.black87),
+                       '${productProviders.products[index].numberOfLikes} likes' ,
+                        style: const TextStyle(color: Colors.black87),
                       ),
                       const SizedBox(
                         width: 60,
                       ),
                       const Icon(Icons.comment),
+                      const SizedBox(
+                        width: 5,
+                      ),
                       Text(
-                        productProviders.products[index].numberOfComments
-                            .toString(),
-                        style:const TextStyle(color: Colors.black87),
+                        '${productProviders.products[index].numberOfComments} comments',
+                        style: const TextStyle(color: Colors.black87),
                       )
                     ],
                   )

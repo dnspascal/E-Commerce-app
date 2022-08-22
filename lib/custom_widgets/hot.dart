@@ -13,6 +13,7 @@ class HotCustamizable extends StatelessWidget {
       itemCount: hotPageProvider.products.length,
       scrollDirection: Axis.vertical,
       itemBuilder: ((context, index) => Card(
+            elevation: 0.0,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(0),
                 side: const BorderSide(
@@ -26,7 +27,8 @@ class HotCustamizable extends StatelessWidget {
               height: 150,
             ).blurred(
                 colorOpacity: 0.0,
-                blur: 5.50,
+                blurColor: Colors.transparent,
+                blur: 8.0,
                 overlay: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -35,7 +37,7 @@ class HotCustamizable extends StatelessWidget {
                           children: [
                             Image.asset(
                               "assets/icons/drawable-hdpi/backwardtick.png",
-                              color: Colors.black,
+                              color: Colors.white,
                             ),
                             Image.asset(
                               hotPageProvider.products[index].imageOfTheProduct,
@@ -43,13 +45,15 @@ class HotCustamizable extends StatelessWidget {
                             ),
                             Image.asset(
                               "assets/icons/drawable-hdpi/forwardtick.png",
-                              color: Colors.black,
+                              color: Colors.white,
                             ),
                           ]),
                       Text(
                         hotPageProvider.products[index].productName,
                         style: const TextStyle(
-                            fontSize: 25, fontWeight: FontWeight.bold),
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
                       )
                     ])),
           )),

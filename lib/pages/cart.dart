@@ -1,12 +1,16 @@
+import 'package:eight_project/providers/product_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:eight_project/custom_widgets/cart.dart';
 import 'package:eight_project/custom_widgets/bottombar.dart';
+import "package:provider/provider.dart";
 
 class Cart extends StatelessWidget {
   const Cart({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    ProductProviders cartProvider = Provider.of(context);
+    double total = cartProvider.subtotal() + cartProvider.taxes();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
@@ -43,11 +47,11 @@ class Cart extends StatelessWidget {
                     padding: const EdgeInsets.fromLTRB(10, 20, 20, 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
-                        Text("Subtotal: "),
+                      children: [
+                        const Text("Subtotal:"),
                         Text(
-                          "\$299.5",
-                          style: TextStyle(color: Colors.black26),
+                          '\$ ${double.parse(cartProvider.subtotal().toStringAsFixed(2)).toString()}',
+                          style: const TextStyle(color: Colors.black26),
                         )
                       ],
                     ),
@@ -59,11 +63,11 @@ class Cart extends StatelessWidget {
                     padding: const EdgeInsets.fromLTRB(10, 20, 20, 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
-                        Text("Taxes: "),
+                      children: [
+                        const Text("Taxes: "),
                         Text(
-                          "\$0.00",
-                          style: TextStyle(color: Colors.black26),
+                          '\$ ${double.parse(cartProvider.taxes().toStringAsFixed(2)).toString()}',
+                          style: const TextStyle(color: Colors.black26),
                         )
                       ],
                     ),
@@ -75,11 +79,11 @@ class Cart extends StatelessWidget {
                     padding: const EdgeInsets.fromLTRB(10, 20, 20, 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
-                        Text("TOTAL:"),
+                      children: [
+                        const Text("TOTAL:"),
                         Text(
-                          "\$299.5",
-                          style: TextStyle(color: Colors.black26),
+                          '\$ ${double.parse(total.toStringAsFixed(2)).toString()}',
+                          style: const TextStyle(color: Colors.black26),
                         )
                       ],
                     ),

@@ -1,4 +1,12 @@
 import 'package:flutter/material.dart';
-import '';
 
-class UserProviders with ChangeNotifier{}
+class UserProviders with ChangeNotifier {
+  void login({
+    name,
+    email,
+    phone,
+  }) {
+
+//notifyListeners();
+  }
+}

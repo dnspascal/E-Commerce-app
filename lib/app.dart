@@ -1,9 +1,5 @@
-import 'package:eight_project/pages/cart.dart';
 import 'package:eight_project/pages/homePage.dart';
-import 'package:eight_project/pages/hot.dart';
-import 'package:eight_project/pages/product%20_details.dart';
-import 'package:eight_project/pages/product_details2.dart';
-import 'package:eight_project/pages/profile.dart';
+import 'package:eight_project/pages/login.dart';
 import 'package:flutter/material.dart';
 
 class Ecommerce extends StatelessWidget {
@@ -14,7 +10,7 @@ class Ecommerce extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "E-commerce app",
-      home:HomePage(),
+      home: HomePage(),
     );
   }
-} 
+}
