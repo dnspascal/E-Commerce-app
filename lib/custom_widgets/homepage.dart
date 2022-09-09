@@ -1,8 +1,6 @@
 import 'package:eight_project/providers/product_provider.dart';
 import 'package:flutter/material.dart';
-
 import "package:provider/provider.dart";
-
 import '../pages/product_details2.dart';
 
 class Card1 extends StatefulWidget {
@@ -14,9 +12,16 @@ class Card1 extends StatefulWidget {
 
 class _Card1State extends State<Card1> {
   @override
+  void initState() {
+    ProductProviders productProvider = Provider.of(context, listen: false);
+    productProvider.getProducts();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    
     ProductProviders productProviders = Provider.of(context);
+    //productProviders.getProducts();
 
     return ListView.builder(
       itemBuilder: ((context, index) => Card(
@@ -36,7 +41,6 @@ class _Card1State extends State<Card1> {
                         IconButton(
                             onPressed: () {
                               productProviders.like(index);
-                              
                             },
                             icon: productProviders.products[index].isLiked
                                 ? Image.asset(
@@ -120,7 +124,7 @@ class _Card1State extends State<Card1> {
                         width: 5,
                       ),
                       Text(
-                       '${productProviders.products[index].numberOfLikes} likes' ,
+                        '${productProviders.products[index].numberOfLikes} likes',
                         style: const TextStyle(color: Colors.black87),
                       ),
                       const SizedBox(

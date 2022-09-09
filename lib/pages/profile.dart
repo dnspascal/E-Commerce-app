@@ -44,7 +44,7 @@ class Profile extends StatelessWidget {
                         height: 20,
                       ),
                       const Text(
-                        "Mark  Zuckerberg",
+                      "Denis Mgaya",
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 30),
                       ),

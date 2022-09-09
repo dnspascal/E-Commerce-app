@@ -1,5 +1,4 @@
 import'package:flutter/material.dart';
-
 import '../pages/cart.dart';
 class ProductDetailBottomBar extends StatelessWidget {
   const ProductDetailBottomBar({Key? key}) : super(key: key);
@@ -10,7 +9,7 @@ class ProductDetailBottomBar extends StatelessWidget {
                 width: 120,
                 height: 60,
                 color: Colors.red[100],
-                child: Row(
+        child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(

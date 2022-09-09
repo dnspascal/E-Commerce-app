@@ -1,70 +1,74 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:eight_project/models/products.dart';
+import 'package:http/http.dart' as http;
 
+//with is mixing two classes
 class ProductProviders with ChangeNotifier {
   int likeCounterIncrease = 0;
 
   List<Product> products = [
-    Product(
-        imageAtTheBlurOfTheHotPage: "assets/images/blur2 (3).jpg",
-        id: 1,
-        isRated: true,
-        isTrending: true,
-        isAddedToCart: true,
-        isLiked: true,
-        productName: "phone",
-        numberOfLikes: 0,
-        numberOfComments: 0,
-        price: 100.45,
-        imageOfTheProduct: "assets/images/image-phone.jpg"),
-    Product(
-        imageAtTheBlurOfTheHotPage: "assets/images/blur2 (5).jpg",
-        id: 2,
-        isRated: true,
-        isTrending: true,
-        isAddedToCart: true,
-        isLiked: true,
-        productName: "controller",
-        numberOfLikes: 0,
-        numberOfComments: 0,
-        price: 50.7,
-        imageOfTheProduct: "assets/images/image-controller.jpg"),
-    Product(
-        imageAtTheBlurOfTheHotPage: "assets/images/blur2 (4).jpg",
-        id: 3,
-        isRated: true,
-        isTrending: true,
-        isAddedToCart: true,
-        isLiked: true,
-        productName: "tv",
-        numberOfLikes: 0,
-        numberOfComments: 0,
-        price: 475.99,
-        imageOfTheProduct: "assets/images/image-tv.jpg"),
-    Product(
-        imageAtTheBlurOfTheHotPage: "assets/images/blur2 (2).jpg",
-        id: 4,
-        isRated: true,
-        isTrending: true,
-        isAddedToCart: true,
-        isLiked: true,
-        productName: "laptop",
-        numberOfLikes: 0,
-        numberOfComments: 0,
-        price: 553.45,
-        imageOfTheProduct: "assets/images/image-laptop.jpg"),
-    Product(
-        imageAtTheBlurOfTheHotPage: "assets/images/blur2 (1).jpg",
-        id: 5,
-        isRated: true,
-        isTrending: true,
-        isAddedToCart: true,
-        isLiked: true,
-        productName: "hdd",
-        numberOfLikes: 0,
-        numberOfComments: 0,
-        price: 49.56,
-        imageOfTheProduct: "assets/images/image-hdd.webp"),
+    // Product(
+    //     imageAtTheBlurOfTheHotPage: "assets/images/blur2 (3).jpg",
+    //     id: 1,
+    //     isRated: true,
+    //     isTrending: true,
+    //     isAddedToCart: true,
+    //     isLiked: true,
+    //     productName: "phone",
+    //     numberOfLikes: 0,
+    //     numberOfComments: 0,
+    //     price: 100.45,
+    //     imageOfTheProduct: "assets/images/image-phone.jpg"),
+    // Product(
+    //     imageAtTheBlurOfTheHotPage: "assets/images/blur2 (5).jpg",
+    //     id: 2,
+    //     isRated: true,
+    //     isTrending: true,
+    //     isAddedToCart: true,
+    //     isLiked: true,
+    //     productName: "controller",
+    //     numberOfLikes: 0,
+    //     numberOfComments: 0,
+    //     price: 50.7,
+    //     imageOfTheProduct: "assets/images/image-controller.jpg"),
+    // Product(
+    //     imageAtTheBlurOfTheHotPage: "assets/images/blur2 (4).jpg",
+    //     id: 3,
+    //     isRated: true,
+    //     isTrending: true,
+    //     isAddedToCart: true,
+    //     isLiked: true,
+    //     productName: "tv",
+    //     numberOfLikes: 0,
+    //     numberOfComments: 0,
+    //     price: 475.99,
+    //     imageOfTheProduct: "assets/images/image-tv.jpg"),
+    // Product(
+    //     imageAtTheBlurOfTheHotPage: "assets/images/blur2 (2).jpg",
+    //     id: 4,
+    //     isRated: true,
+    //     isTrending: true,
+    //     isAddedToCart: true,
+    //     isLiked: true,
+    //     productName: "laptop",
+    //     numberOfLikes: 0,
+    //     numberOfComments: 0,
+    //     price: 553.45,
+    //     imageOfTheProduct: "assets/images/image-laptop.jpg"),
+    // Product(
+    //     imageAtTheBlurOfTheHotPage: "assets/images/blur2 (1).jpg",
+    //     id: 5,
+    //     isRated: true,
+    //     isTrending: true,
+    //     isAddedToCart: true,
+    //     isLiked: true,
+    //     productName: "hdd",
+    //     numberOfLikes: 0,
+    //     numberOfComments: 0,
+    //     price: 49.56,
+    //     imageOfTheProduct: "assets/images/image-hdd.webp"),
   ];
   bool isAddedToCartButtonAtProductDetails = true;
   bool isLikedInDetail = true;
@@ -174,5 +178,37 @@ class ProductProviders with ChangeNotifier {
     //   cart.add(products[i]);
     // }
     notifyListeners();
+  }
+
+  Future<void> getProducts() async {
+    //print("YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY");
+    http.Response response =
+        await http.get(Uri.parse("http://192.168.1.21:8000/api/products"));
+
+    Map<String, dynamic> responseMap = json.decode(response.body);
+    print(responseMap['products'].toString());
+
+    products.clear();
+    responseMap['products'].forEach((productMap) {
+    
+      products.add(
+        Product(
+            imageAtTheBlurOfTheHotPage: "assets/images/blur2 (2).jpg",
+            id: productMap['id'],
+            isRated: true,
+            isTrending: true,
+            isAddedToCart: true,
+            isLiked: true,
+            productName: productMap['name'],
+            numberOfLikes: 0,
+            numberOfComments: 0,
+            price: productMap['price'],
+            imageOfTheProduct: "assets/images/image-laptop.jpg"),
+      );
+    });
+    notifyListeners();
+
+    // print(response.body);
+    //  print(products);
   }
 }

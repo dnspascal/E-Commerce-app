@@ -9,7 +9,7 @@ class Ecommerce extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "E-commerce app",
+      title: "E-commerce app",  
       home: HomePage(),
     );
   }

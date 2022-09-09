@@ -105,7 +105,7 @@ class HomePageAppBar extends StatelessWidget {
                                       color: Colors.white,
                                     )))),
                     child: const Text(
-                      "CATEGORIES",
+                      "CATEGORY",
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
@@ -125,7 +125,7 @@ class HomePageAppBar extends StatelessWidget {
                                       color: Colors.white,
                                     )))),
                     child: const Text(
-                      "HIGH RATED",
+                      "HIT",
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
